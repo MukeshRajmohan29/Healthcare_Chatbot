@@ -31,8 +31,8 @@ router.post('/', validateChatlogRequest, async (req, res) => {
     
     // Insert chat log into database
     const insertSQL = `
-      INSERT INTO chat_logs (session_id, healthcare_context, privacy_style, user_first_name, user_last_name, user_age, user_input, bot_reply, timestamp)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      INSERT INTO chat_logs (session_id, healthcare_context, privacy_style, user_first_name, user_last_name, user_age, user_dob, user_input, bot_reply, timestamp)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
       RETURNING id
     `;
 
@@ -43,6 +43,7 @@ router.post('/', validateChatlogRequest, async (req, res) => {
       userDetails?.firstName || null,
       userDetails?.lastName || null,
       userDetails?.age || null,
+      userDetails?.dateOfBirth || null,
       userInput,
       botReply,
       new Date().toISOString()

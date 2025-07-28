@@ -35,6 +35,7 @@ function initializeDatabase() {
           user_first_name VARCHAR(100),
           user_last_name VARCHAR(100),
           user_age INTEGER,
+          user_dob DATE,
           user_input TEXT NOT NULL,
           bot_reply TEXT NOT NULL,
           timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

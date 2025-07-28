@@ -1,5 +1,5 @@
 {
-  "name": "healthcare-chatbot-client",
+  "name": "caps-healthbot-client",
   "version": "1.0.0",
   "private": true,
   "dependencies": {

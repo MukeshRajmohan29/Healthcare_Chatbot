@@ -34,7 +34,7 @@ const Register = () => {
         <div className="flex flex-col gap-2 items-center mb-2">
               {/* ...no icon, revert to original layout... */}
               <h1 id="register-heading" className="text-2xl sm:text-3xl font-extrabold text-blue-900 tracking-tight">User Registration</h1>
-              <p className="text-gray-700 text-base sm:text-lg text-center">Register to use the healthcare chatbot. All fields are required.</p>
+              <p className="text-gray-700 text-base sm:text-lg text-center">Register to use CAPS Healthbot. All fields are required.</p>
         </div>
         <form onSubmit={handleSubmit} autoComplete="off" aria-describedby="register-desc" className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">

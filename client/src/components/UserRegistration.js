@@ -10,6 +10,9 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [acceptPrivacy, setAcceptPrivacy] = useState(false);
+  const [privacyError, setPrivacyError] = useState('');
+  const [showPrivacy, setShowPrivacy] = useState(false);
 
   const calculateAge = (dateOfBirth) => {
     const today = new Date();
@@ -60,6 +63,11 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
     if (!validateForm()) {
       return;
     }
+    if (!acceptPrivacy) {
+      setPrivacyError('You must accept the privacy policy.');
+      return;
+    }
+    setPrivacyError('');
     
     setIsSubmitting(true);
     
@@ -68,9 +76,9 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
       const userDetails = {
         ...formData,
         age,
+        dateOfBirth: formData.dateOfBirth,
         fullName: `${formData.firstName} ${formData.lastName}`
       };
-      
       await onRegister(userDetails);
     } catch (error) {
       console.error('Registration error:', error);
@@ -104,10 +112,10 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
               <User className="w-8 h-8 text-primary-600" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Welcome to Healthcare Chatbot
+              Welcome to CAPS Healthbot
             </h1>
             <p className="text-gray-600">
-              Please provide your information to start your personalized healthcare session
+              Please provide your information to start your personalized CAPS Healthbot session
             </p>
           </div>
 
@@ -187,10 +195,51 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mt-4">
               <h3 className="text-sm font-medium text-blue-800 mb-2">Session Information</h3>
               <div className="text-xs text-blue-700 space-y-1">
-                <p><strong>Healthcare Context:</strong> {healthcareContext}</p>
-                <p><strong>Privacy Style:</strong> {privacyStyle}</p>
+                <p><strong>Healthcare Context:</strong> {healthcareContext && healthcareContext.charAt(0).toUpperCase() + healthcareContext.slice(1)}</p>
+                <p><strong>Privacy Style:</strong> {privacyStyle && privacyStyle.charAt(0).toUpperCase() + privacyStyle.slice(1)}</p>
                 <p><strong>Session ID:</strong> Will be generated based on your information</p>
               </div>
+            </div>
+
+            {/* Privacy Policy Checkbox - moved and centered at the end */}
+            <div className="flex flex-col items-center justify-center mt-6">
+              <div className="flex items-center gap-2 text-center">
+                <input
+                  id="acceptPrivacy"
+                  name="acceptPrivacy"
+                  type="checkbox"
+                  checked={acceptPrivacy}
+                  onChange={e => setAcceptPrivacy(e.target.checked)}
+                  required
+                  aria-required="true"
+                  aria-describedby="privacy-desc"
+                  className="focus:ring-blue-500 focus:ring-2 w-5 h-5 rounded border border-blue-300"
+                />
+                <label htmlFor="acceptPrivacy" className="text-sm text-blue-900 select-none">
+                  By clicking <strong>“Agree &amp; continue”</strong> you attest that you are at least 18 years old and agree to the{' '}
+                  <a
+                    href="/terms.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-blue-700 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    Terms of Use
+                  </a>
+                  {' '}and{' '}
+                  <a
+                    href="/privacy.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-blue-700 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    Privacy Policy
+                  </a>.
+                </label>
+              </div>
+              <div id="privacy-desc" className="sr-only">You must accept the terms and privacy policy to register.</div>
+              {privacyError && (
+                <div className="text-red-600 text-sm rounded bg-red-50 border border-red-200 px-3 py-2 mt-2 w-full text-center" role="alert" aria-live="assertive">{privacyError}</div>
+              )}
             </div>
 
             <button
@@ -211,6 +260,37 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
               )}
             </button>
           </form>
+        {/* Accessible modal for privacy info */}
+        {showPrivacy && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="privacy-modal-title"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-2"
+          >
+            <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-lg w-full relative outline-none" tabIndex={-1}>
+              <h2 id="privacy-modal-title" className="text-lg font-bold mb-2 text-blue-900">HIPAA Privacy Measures</h2>
+              <p className="mb-4 text-blue-900 text-sm">
+                For details on how your health information is protected, please see the official HIPAA privacy page below. This will open in a new tab.
+              </p>
+              <a
+                href="https://www.hhs.gov/hipaa/for-professionals/privacy/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mb-4 px-4 py-2 bg-blue-100 text-blue-800 rounded hover:bg-blue-200 underline"
+              >
+                View HIPAA Privacy Policy
+              </a>
+              <button
+                onClick={() => setShowPrivacy(false)}
+                className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
+                aria-label="Close privacy information"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
 
           <div className="mt-6 text-center">
             <p className="text-xs text-gray-500">

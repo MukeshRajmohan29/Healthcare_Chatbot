@@ -135,8 +135,8 @@ const ChatInterface = () => {
       <header className="sticky top-0 z-20 bg-white/90 backdrop-blur shadow border-b border-gray-200" role="banner">
         <div className="px-4 py-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-1">
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-blue-900 tracking-tight" tabIndex={0} aria-label="Healthcare Chatbot">
-              Healthcare Chatbot
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-blue-900 tracking-tight" tabIndex={0} aria-label="CAPS Healthbot">
+              CAPS Healthbot
             </h1>
             <p className="text-gray-700 text-base sm:text-lg" tabIndex={0}>
               Privacy-aware AI assistant for healthcare support

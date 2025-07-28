@@ -1,8 +1,8 @@
 
 
-# Healthcare Chatbot - Privacy-Aware AI Assistant
+# CAPS Healthbot - Privacy-Aware AI Assistant
 
-A full-stack web application featuring a privacy-aware healthcare chatbot with a React frontend and Node.js backend. The chatbot is designed for healthcare use cases and follows HIPAA privacy measures.
+A full-stack web application featuring a privacy-aware CAPS Healthbot with a React frontend and Node.js backend. CAPS Healthbot is designed for healthcare use cases and follows HIPAA privacy measures.
 
 
 ## 🧠 Features
@@ -10,7 +10,7 @@ A full-stack web application featuring a privacy-aware healthcare chatbot with a
 - **Healthcare Contexts**: Symptom checking, mental health support, and chronic care management
 - **HIPAA Privacy Popup**: Registration page includes a required privacy acceptance checkbox with a popup showing official HIPAA privacy measures
 - **AI-Powered Responses**: OpenAI GPT-4-turbo integration for intelligent healthcare conversations
-- **Healthcare Context Enforcement**: Chatbot responses are always in healthcare context; non-healthcare questions are redirected
+- **Healthcare Context Enforcement**: CAPS Healthbot responses are always in healthcare context; non-healthcare questions are redirected
 - **Session Management**: Deterministic session ID based on first name, last name, and date of birth; returning users get the same session ID
 - **Modern UI**: Built with React, Tailwind CSS, and shadcn/ui components
 
@@ -28,7 +28,7 @@ A full-stack web application featuring a privacy-aware healthcare chatbot with a
 1. **Clone and install dependencies:**
    ```bash
    git clone <repository-url>
-   cd Chatbot
+   cd CAPS Healthbot
    npm run install-all
    ```
 
@@ -55,7 +55,7 @@ A full-stack web application featuring a privacy-aware healthcare chatbot with a
 ## 📁 Project Structure
 
 ```
-Chatbot/
+CAPS Healthbot/
 ├── client/                 # React frontend
 │   ├── public/             # Static files
 │   ├── src/
@@ -87,18 +87,18 @@ PORT=5000
 NODE_ENV=development
 
 # Database Configuration (for chatlog storage)
-DATABASE_URL=sqlite:./chatbot.db
+DATABASE_URL=sqlite:./caps_healthbot.db
 ```
 
 
 ### API Endpoints
 
-- `POST /api/chat` - Send message to chatbot
+- `POST /api/chat` - Send message to CAPS Healthbot
 - `POST /api/chatlog` - Save chat session data
 
 ## 🏥 Healthcare Contexts
 
-The chatbot operates strictly within healthcare contexts:
+CAPS Healthbot operates strictly within healthcare contexts:
 
 1. **Symptom Checking**: General health symptom assessment
 2. **Mental Health Support**: Emotional and psychological support
@@ -125,7 +125,7 @@ Non-healthcare questions are redirected to keep the conversation in context.
 
 ### Database
 
-The application uses SQLite for storing chat logs. The database file (`chatbot.db`) will be created automatically on first run.
+The application uses SQLite for storing chat logs. The database file (`caps_healthbot.db`) will be created automatically on first run.
 
 
 ## 🔐 Security & Session Features
@@ -153,4 +153,4 @@ MIT License - see LICENSE file for details.
 
 ## ⚠️ Disclaimer
 
-This chatbot is for educational and demonstration purposes only. It should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always consult with qualified healthcare providers for medical concerns.
+CAPS Healthbot is for educational and demonstration purposes only. It should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always consult with qualified healthcare providers for medical concerns.

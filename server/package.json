@@ -1,7 +1,7 @@
 {
-  "name": "healthcare-chatbot-server",
+  "name": "caps-healthbot-server",
   "version": "1.0.0",
-  "description": "Backend server for healthcare chatbot",
+  "description": "Backend server for CAPS Healthbot",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -25,7 +25,7 @@
   },
   "keywords": [
     "healthcare",
-    "chatbot",
+    "caps healthbot",
     "api",
     "express"
   ],

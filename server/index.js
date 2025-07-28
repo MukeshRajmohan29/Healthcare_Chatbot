@@ -55,7 +55,7 @@ app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'OK', 
     timestamp: new Date().toISOString(),
-    service: 'Healthcare Chatbot API'
+    service: 'CAPS Healthbot API'
   });
 });
 
@@ -80,7 +80,7 @@ async function startServer() {
     console.log('✅ Database initialized successfully');
     
     app.listen(PORT, () => {
-      console.log(`🚀 Healthcare Chatbot Server running on port ${PORT}`);
+      console.log(`🚀 CAPS Healthbot Server running on port ${PORT}`);
       console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
     });
   } catch (error) {

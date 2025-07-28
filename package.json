@@ -1,7 +1,7 @@
 {
-  "name": "healthcare-chatbot",
+  "name": "caps-healthbot",
   "version": "1.0.0",
-  "description": "Privacy-aware healthcare chatbot with React frontend and Node.js backend",
+  "description": "Privacy-aware CAPS Healthbot with React frontend and Node.js backend",
   "main": "server/index.js",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "healthcare",
-    "chatbot",
+    "caps healthbot",
     "privacy",
     "react",
     "nodejs"
