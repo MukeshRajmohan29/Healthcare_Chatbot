@@ -109,19 +109,19 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
         <div className="card">
           <div className="text-center mb-6">
             <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <User className="w-8 h-8 text-primary-600" />
+              <User className="w-8 h-8 text-primary-900" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
               Welcome to CAPS Healthbot
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-900">
               Please provide your information to start your personalized CAPS Healthbot session
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="firstName" className="block text-sm font-medium text-gray-900 mb-1">
                 First Name *
               </label>
               <input
@@ -137,12 +137,12 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
                 placeholder="Enter your first name"
               />
               {errors.firstName && (
-                <p className="text-red-600 text-xs mt-1">{errors.firstName}</p>
+                <p className="text-red-800 text-xs mt-1 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 mr-1 text-red-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" /></svg>{errors.firstName}</p>
               )}
             </div>
 
             <div>
-              <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="lastName" className="block text-sm font-medium text-gray-900 mb-1">
                 Last Name *
               </label>
               <input
@@ -158,12 +158,12 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
                 placeholder="Enter your last name"
               />
               {errors.lastName && (
-                <p className="text-red-600 text-xs mt-1">{errors.lastName}</p>
+                <p className="text-red-800 text-xs mt-1 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 mr-1 text-red-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" /></svg>{errors.lastName}</p>
               )}
             </div>
 
             <div>
-              <label htmlFor="dateOfBirth" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="dateOfBirth" className="block text-sm font-medium text-gray-900 mb-1">
                 Date of Birth *
               </label>
               <div className="relative">
@@ -182,22 +182,19 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
                 <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
               </div>
               {errors.dateOfBirth && (
-                <p className="text-red-600 text-xs mt-1">{errors.dateOfBirth}</p>
+                <p className="text-red-800 text-xs mt-1 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 mr-1 text-red-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" /></svg>{errors.dateOfBirth}</p>
               )}
               {formData.dateOfBirth && !errors.dateOfBirth && (
-                <p className="text-green-600 text-xs mt-1 flex items-center">
-                  <Calculator className="w-3 h-3 mr-1" />
-                  Age: {calculateAge(formData.dateOfBirth)} years old
-                </p>
+                <p className="text-green-800 text-xs mt-1 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 mr-1 text-green-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>Age: {calculateAge(formData.dateOfBirth)} years old</p>
               )}
             </div>
 
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mt-4">
-              <h3 className="text-sm font-medium text-blue-800 mb-2">Session Information</h3>
-              <div className="text-xs text-blue-700 space-y-1">
-                <p><strong>Healthcare Context:</strong> {healthcareContext && healthcareContext.charAt(0).toUpperCase() + healthcareContext.slice(1)}</p>
-                <p><strong>Privacy Style:</strong> {privacyStyle && privacyStyle.charAt(0).toUpperCase() + privacyStyle.slice(1)}</p>
-                <p><strong>Session ID:</strong> Will be generated based on your information</p>
+              <h2 className="text-sm font-medium text-primary-900 mb-2">Session Information</h2>
+              <div className="text-xs text-primary-900 space-y-1">
+                <p className="leading-relaxed"><strong>Healthcare Context:</strong> {healthcareContext && healthcareContext.charAt(0).toUpperCase() + healthcareContext.slice(1)}</p>
+                <p className="leading-relaxed"><strong>Privacy Style:</strong> {privacyStyle && privacyStyle.charAt(0).toUpperCase() + privacyStyle.slice(1)}</p>
+                <p className="leading-relaxed"><strong>Session ID:</strong> Will be generated based on your information</p>
               </div>
             </div>
 
@@ -221,7 +218,7 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
                     href="/terms.html"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline text-blue-700 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="underline text-primary-900 hover:text-primary-900 focus:outline-none focus:ring-2 focus:ring-primary-900"
                   >
                     Terms of Use
                   </a>
@@ -230,7 +227,7 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
                     href="/privacy.html"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline text-blue-700 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="underline text-primary-900 hover:text-primary-900 focus:outline-none focus:ring-2 focus:ring-primary-900"
                   >
                     Privacy Policy
                   </a>.
@@ -246,7 +243,7 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
               type="submit"
               disabled={isSubmitting}
               className={cn(
-                "btn-primary w-full",
+                "btn-primary w-full bg-primary-900 hover:bg-primary-900 border border-primary-900 text-white",
                 isSubmitting && "opacity-50 cursor-not-allowed"
               )}
             >
@@ -277,7 +274,7 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
                 href="https://www.hhs.gov/hipaa/for-professionals/privacy/index.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mb-4 px-4 py-2 bg-blue-100 text-blue-800 rounded hover:bg-blue-200 underline"
+                className="inline-block mb-4 px-4 py-2 bg-blue-100 text-blue-900 rounded hover:bg-blue-200 underline"
               >
                 View HIPAA Privacy Policy
               </a>
@@ -293,7 +290,7 @@ const UserRegistration = ({ onRegister, healthcareContext, privacyStyle }) => {
         )}
 
           <div className="mt-6 text-center">
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-900 leading-relaxed">
               Your information is used to create a unique session ID and provide personalized care.
               <br />
               All data is encrypted and handled according to our privacy policy.

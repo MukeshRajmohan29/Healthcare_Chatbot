@@ -84,7 +84,7 @@ const SessionInfo = ({ healthcareContext, privacyStyle }) => {
         {contextConfig.label}
         {showContextTooltip && (
           <div className="absolute z-50 left-0 mt-2 p-2 bg-white border border-gray-300 rounded shadow text-xs w-64" style={{top: '100%', zIndex: 9999}}>
-            {contextConfig.description}
+            <span className="text-gray-900">{contextConfig.description}</span>
           </div>
         )}
       </div>
@@ -99,12 +99,12 @@ const SessionInfo = ({ healthcareContext, privacyStyle }) => {
         {privacyConfig.label}
         {showPrivacyTooltip && (
           <div className="absolute z-50 left-0 mt-2 p-2 bg-white border border-gray-300 rounded shadow text-xs w-64" style={{top: '100%', zIndex: 9999}}>
-            {privacyConfig.description}
+            <span className="text-gray-900">{privacyConfig.description}</span>
           </div>
         )}
       </div>
 
-      <div className="text-xs text-gray-500 ml-auto self-center">
+      <div className="text-xs text-gray-900 ml-auto self-center">
         Session active
       </div>
     </div>

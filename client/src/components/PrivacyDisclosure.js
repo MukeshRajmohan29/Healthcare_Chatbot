@@ -61,7 +61,7 @@ const PrivacyDisclosure = ({ privacyStyle, isVisible, onToggle }) => {
         </div>
         <p className="text-sm leading-relaxed mb-2">{config.content}</p>
         <div className="mt-2 pt-2 border-t border-current border-opacity-20">
-          <p className="text-xs opacity-80">
+          <p className="text-xs text-gray-900">
             This information is provided to ensure transparency about how your data is handled during our conversation.
           </p>
         </div>

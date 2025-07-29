@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from 'react';
 import { Home } from 'lucide-react';
 import { useChat } from '../contexts/ChatContext';
@@ -7,6 +8,12 @@ import SessionInfo from './SessionInfo';
 import PrivacyDisclosure from './PrivacyDisclosure';
 import UserRegistration from './UserRegistration';
 import { cn } from '../utils/cn';
+// Accessible skip link styles (for reference, not used as a variable)
+// const skipLinkStyles = `
+//   absolute left-2 top-2 z-50 px-4 py-2 bg-white text-blue-900 rounded shadow
+//   focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+//   transition-transform -translate-y-16 focus:translate-y-0
+// `;
 
 const ChatInterface = () => {
   const {
@@ -130,7 +137,15 @@ const ChatInterface = () => {
   }
 
   return (
-    <main className="flex flex-col h-screen bg-gradient-to-br from-blue-100 to-white" role="main" aria-label="Chat interface">
+    <>
+      <a
+        href="#main-content"
+        className="skip-to-main-content absolute left-2 top-2 z-50 px-4 py-2 bg-white text-blue-900 rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-transform -translate-y-16 focus:translate-y-0"
+        tabIndex={0}
+      >
+        Skip to main content
+      </a>
+      <main id="main-content" className="flex flex-col h-screen bg-gradient-to-br from-blue-100 to-white" role="main" aria-label="Chat interface">
       {/* Sticky, responsive header */}
       <header className="sticky top-0 z-20 bg-white/90 backdrop-blur shadow border-b border-gray-200" role="banner">
         <div className="px-4 py-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -138,18 +153,18 @@ const ChatInterface = () => {
             <h1 className="text-2xl sm:text-3xl font-extrabold text-blue-900 tracking-tight" tabIndex={0} aria-label="CAPS Healthbot">
               CAPS Healthbot
             </h1>
-            <p className="text-gray-700 text-base sm:text-lg" tabIndex={0}>
+            <p className="text-gray-900 text-base sm:text-lg" tabIndex={0}>
               Privacy-aware AI assistant for healthcare support
             </p>
             {userDetails && (
-              <p className="text-sm text-blue-700 mt-1" tabIndex={0} aria-live="polite">
+            <p className="text-sm text-blue-900 mt-1 leading-relaxed" tabIndex={0} aria-live="polite">
                 Welcome, {userDetails.firstName}!
               </p>
             )}
           </div>
           <button
             onClick={handleGoToRegistration}
-            className="mt-2 sm:mt-0 p-2 bg-blue-700 text-white rounded-full shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 hover:bg-blue-800 transition flex items-center justify-center"
+            className="mt-2 sm:mt-0 w-11 h-11 min-w-[44px] min-h-[44px] bg-blue-700 text-white rounded-full shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 hover:bg-blue-800 transition flex items-center justify-center"
             aria-label="Go to Home / Registration"
             title="Go to Home / Registration"
           >
@@ -190,10 +205,10 @@ const ChatInterface = () => {
             />
             <div className="flex justify-center mb-4" aria-live="polite">
               <div className="bg-green-50 border border-green-200 rounded-lg px-4 py-3 text-center shadow-sm w-full max-w-md">
-                <p className="text-green-700 text-sm font-semibold mb-2">
+                <p className="text-green-900 text-sm font-semibold mb-2 leading-relaxed">
                   <span aria-hidden="true">✅</span> Session initialized successfully
                 </p>
-                <p className="text-green-600 text-xs">
+                <p className="text-green-900 text-xs leading-relaxed">
                   You can now start your conversation below
                 </p>
               </div>
@@ -252,7 +267,8 @@ const ChatInterface = () => {
           />
         </div>
       </footer>
-    </main>
+      </main>
+    </>
   );
 };
 

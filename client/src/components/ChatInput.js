@@ -41,6 +41,7 @@ const ChatInput = ({ onSendMessage, isLoading, disabled }) => {
       
       <button
         type="submit"
+        aria-label="Send message"
         disabled={!message.trim() || isLoading || disabled}
         className={cn(
           "btn-primary flex-shrink-0 w-12 h-12 flex items-center justify-center",

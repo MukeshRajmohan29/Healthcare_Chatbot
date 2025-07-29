@@ -34,11 +34,11 @@ const ChatMessage = ({ message, isUser }) => {
               <div className="prose prose-sm max-w-none">
                 {message.content.split('\n').map((line, index) => {
                   if (line.startsWith('# ')) {
-                    return <h1 key={index} className="text-lg font-bold mb-2 text-primary-700">{line.substring(2)}</h1>;
+                    return <h1 key={index} className="text-lg font-bold mb-2 text-primary-900">{line.substring(2)}</h1>;
                   } else if (line.startsWith('## ')) {
-                    return <h2 key={index} className="text-base font-semibold mb-2 mt-4 text-primary-600">{line.substring(3)}</h2>;
+                    return <h2 key={index} className="text-base font-semibold mb-2 mt-4 text-primary-900">{line.substring(3)}</h2>;
                   } else if (line.startsWith('### ')) {
-                    return <h3 key={index} className="text-sm font-medium mb-1 mt-3 text-primary-500">{line.substring(4)}</h3>;
+                    return <h3 key={index} className="text-sm font-medium mb-1 mt-3 text-primary-900">{line.substring(4)}</h3>;
                   } else if (line.startsWith('• ')) {
                     return <div key={index} className="ml-4 mb-1">• {line.substring(2)}</div>;
                   } else if (line === '---') {
@@ -57,7 +57,7 @@ const ChatMessage = ({ message, isUser }) => {
         </div>
         
         <span className={cn(
-          "text-xs mt-1 opacity-60",
+          "text-xs mt-1 text-gray-900",
           isUser ? "text-right" : "text-left"
         )}>
           {formatTime(message.timestamp)}
